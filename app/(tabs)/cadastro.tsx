@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const STORAGE_KEY_NOME = '@cadastro:nome';
-const STORAGE_KEY_EMAIL = '@cadastro:email';
-const STORAGE_KEY_SENHA = '@cadastro:senha';
+const STORAGE_KEY_MODELO = '@cadastro:modelo';
+const STORAGE_KEY_COR = '@cadastro:cor';
+const STORAGE_KEY_PLACA = '@cadastro:placa';
 
 export default function CadastroScreen() {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [modelo, setModelo] = useState('');
+  const [cor, setCor] = useState('');
+  const [placa, setPlaca] = useState('');
 
   useEffect(() => {
     loadDados();
@@ -17,17 +17,17 @@ export default function CadastroScreen() {
 
   const loadDados = async () => {
     try {
-      const storedNome = await AsyncStorage.getItem(STORAGE_KEY_NOME);
-      if (storedNome !== null) {
-        setNome(storedNome);
+      const storedModelo = await AsyncStorage.getItem(STORAGE_KEY_MODELO);
+      if (storedModelo !== null) {
+        setModelo(storedModelo);
       }
-      const storedEmail = await AsyncStorage.getItem(STORAGE_KEY_EMAIL);
-      if (storedEmail !== null) {
-        setEmail(storedEmail);
+      const storedCor = await AsyncStorage.getItem(STORAGE_KEY_COR);
+      if (storedCor !== null) {
+        setCor(storedCor);
       }
-      const storedSenha = await AsyncStorage.getItem(STORAGE_KEY_SENHA);
-      if (storedSenha !== null) {
-        setSenha(storedSenha);
+      const storedPlaca = await AsyncStorage.getItem(STORAGE_KEY_PLACA);
+      if (storedPlaca !== null) {
+        setPlaca(storedPlaca);
       }
     } catch (error) {
       Alert.alert('Erro ao carregar os dados!', error.message);
@@ -36,9 +36,9 @@ export default function CadastroScreen() {
 
   const saveDados = async () => {
     try {
-      await AsyncStorage.setItem(STORAGE_KEY_NOME, nome);
-      await AsyncStorage.setItem(STORAGE_KEY_EMAIL, email);
-      await AsyncStorage.setItem(STORAGE_KEY_SENHA, senha);
+      await AsyncStorage.setItem(STORAGE_KEY_MODELO, modelo);
+      await AsyncStorage.setItem(STORAGE_KEY_COR, cor);
+      await AsyncStorage.setItem(STORAGE_KEY_PLACA, placa);
       console.log('Sucesso!', 'Dados salvos com sucesso!');
     } catch (error) {
       Alert.alert('Erro ao salvar os dados!', error.message);
@@ -53,28 +53,26 @@ export default function CadastroScreen() {
 
       <TextInput
         style={styles.input}
-        placeholder="Nome"
-        value={nome}
-        onChangeText={setNome}
+        placeholder="Modelo da moto"
+        value={modelo}
+        onChangeText={setModelo}
         placeholderTextColor="#999"
         />
 
       <TextInput
         style={styles.input}
-        placeholder="E-mail"
-        value={email}
-        onChangeText={setEmail}
+        placeholder="Cor da moto"
+        value={cor}
+        onChangeText={setCor}
         placeholderTextColor="#999"
-        keyboardType="email-address"
         />
 
       <TextInput
         style={styles.input}
         placeholder="Senha"
-        value={senha}
-        onChangeText={setSenha}
+        value={placa}
+        onChangeText={setPlaca}
         placeholderTextColor="#999"
-        secureTextEntry
         />
 
       <TouchableOpacity style={styles.button} onPress={saveDados}>
@@ -82,9 +80,9 @@ export default function CadastroScreen() {
       </TouchableOpacity>
 
       <View style={styles.dataContainer}>
-        <Text style={styles.loadedText}>Nome: {nome || 'Nenhum salvo'}</Text>
-        <Text style={styles.loadedText}>E-mail: {email || 'Nenhum salvo'}</Text>
-        <Text style={styles.loadedText}>Senha: {senha ? 'Salva' : 'Nenhuma salva'}</Text>
+        <Text style={styles.loadedText}>Modelo da moto: {modelo || 'Nenhum salvo'}</Text>
+        <Text style={styles.loadedText}>Cor: {cor || 'Nenhum salvo'}</Text>
+        <Text style={styles.loadedText}>Placa: {placa || 'Nenhuma salva'}</Text>
       </View>
     </View>
     </View>

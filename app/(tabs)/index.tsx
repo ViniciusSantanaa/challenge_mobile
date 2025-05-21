@@ -13,7 +13,7 @@ export default function HomeScreen() {
         </TouchableOpacity>
       </Link>
 
-      <Link href="/" asChild>
+      <Link href="/patios" asChild>
         <TouchableOpacity style={styles.button}>
           <ThemedText style={styles.buttonText}>Buscar Pátio</ThemedText>
         </TouchableOpacity>
