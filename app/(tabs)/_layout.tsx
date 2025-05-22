@@ -52,6 +52,40 @@ export default function RootLayout() {
           headerTitleAlign: 'center',
         }}
       />
+
+      <Stack.Screen
+      name="motos"
+      options={{
+        title: 'MotoMap',
+        headerStyle: {
+          backgroundColor: '#FFF9F9',
+          height: 150,
+        },
+        headerTitleStyle: {
+          color: '#2c3e50',
+          fontSize: 50,
+          fontWeight: 'bold',
+        },
+        headerTitleAlign: 'center',
+      }}
+    />
+
+      <Stack.Screen
+      name="sobre"
+      options={{
+        title: 'MotoMap',
+        headerStyle: {
+          backgroundColor: '#FFF9F9',
+          height: 150,
+        },
+        headerTitleStyle: {
+          color: '#2c3e50',
+          fontSize: 50,
+          fontWeight: 'bold',
+        },
+        headerTitleAlign: 'center',
+      }}
+    />
     </Stack>
   );
 }

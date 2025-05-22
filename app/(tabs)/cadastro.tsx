@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   fundo: {
-    backgroundColor: '#58afdd',
+    backgroundColor: '#465f73',
     padding: 10,
     borderRadius: 8,
     alignItems: 'center',

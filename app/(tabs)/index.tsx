@@ -19,11 +19,18 @@ export default function HomeScreen() {
         </TouchableOpacity>
       </Link>
 
-      <Link href="/" asChild>
+      <Link href="/motos" asChild>
         <TouchableOpacity style={styles.button}>
           <ThemedText style={styles.buttonText}>Buscar Moto</ThemedText>
         </TouchableOpacity>
       </Link>
+   
+      <Link href="/sobre" asChild>
+        <TouchableOpacity style={styles.button}>
+          <ThemedText style={styles.buttonText}>Sobre Nós</ThemedText>
+        </TouchableOpacity>
+      </Link>
+
     </View>
   );
 }
